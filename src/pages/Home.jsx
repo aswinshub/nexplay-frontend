@@ -31,27 +31,31 @@ const Home = () => {
 
   return (
     <div className="font-sans bg-[#0a0f1a] text-white min-h-screen">
-      <nav className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-6 md:py-10 bg-[#0a0f1a] relative">
-        {/* Logo and Brand Name */}
-        <div className="flex items-center gap-2 md:mb-0 mb-4 md:justify-start justify-center w-full">
-          <img src={logo} alt="Logo" className="h-8 w-auto" />
-          <span className="text-white text-2xl font-light align-middle">
-            NexPlay
-          </span>
-        </div>
+   <nav className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-6 md:py-10 bg-[#0a0f1a]">
+  {/* Logo and Brand Name */}
+  <div className="flex items-center gap-2 md:mb-0 mb-4">
+    <img src={logo} alt="Logo" className="h-8 w-auto" />
+    <span className="text-white text-2xl font-light align-middle">
+      NexPlay
+    </span>
+  </div>
 
-        <div className="md:hidden mb-4">
-          <button className="border border-white text-white px-4 py-2 rounded-full bg-transparent text-sm font-light">
-            Tournament | Team Registration
-          </button>
-        </div>
+  {/* Tournament | Team Registration Button (Default in Mobile, Centered in Desktop) */}
+  <div className="w-[50%] md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0">
+    <button className="border border-white text-white px-4 py-2 rounded-full bg-transparent text-sm font-light w-full md:w-auto">
+      Tournament | Team Registration
+    </button>
+  </div>
 
-        <div className="md:ml-auto">
-          <button className="bg-[#d90429] text-white px-4 md:px-6 py-2 rounded-md text-sm font-light">
-            Login
-          </button>
-        </div>
-      </nav>
+  {/* Login Button (Right-Aligned) */}
+  <div className="md:ml-auto">
+    <button className="bg-[#d90429] text-white px-4 md:px-6 py-2 rounded-md text-sm font-light">
+      Login
+    </button>
+  </div>
+</nav>
+
+
 
       {/* Hero Section */}
       <header
