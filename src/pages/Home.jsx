@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 import logo from "../assets/images/logo.png";
 import heroimg from "../assets/images/heroimage.png";
@@ -7,6 +9,7 @@ import footballimg from "../assets/images/football.png";
 import badmintonimg from "../assets/images/badminton.png";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -42,7 +45,10 @@ const Home = () => {
 
   {/* Tournament | Team Registration Button (Default in Mobile, Centered in Desktop) */}
   <div className="w-[50%] md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0">
-    <button className="border border-white text-white px-4 py-2 rounded-full bg-transparent text-sm font-light w-full md:w-auto">
+    <button
+          onClick={() => navigate("/tournament-registration")}
+          className="border border-white text-white px-4 py-2 rounded-full bg-transparent text-sm font-light w-full md:w-auto"
+    >
       Tournament | Team Registration
     </button>
   </div>
