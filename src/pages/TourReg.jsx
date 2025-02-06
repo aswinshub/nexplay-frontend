@@ -42,26 +42,26 @@ const TourReg = () => {
 
         {activeTab === "team" ? (
           <>
-            <div className="bg-[#1b263b] p-8 rounded-lg w-full mb-16">
+            <div className="bg-[#111928] p-8 rounded-lg w-full mb-16">
               {/* Team Details Form */}
               <h3 className="text-lg font-semibold mb-4">Team Details</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="text" placeholder="🏆 Team Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-                <input type="text" placeholder="👤 Manager" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-                <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-                <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
+                <input type="text" placeholder="🏆 Team Name" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+                <input type="text" placeholder="👤 Manager" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+                <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+                <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
               </div>
-              <input type="text" placeholder="🏅 Sports Item" className="p-4 bg-[#0a0f1a] rounded w-full mt-6 text-gray-300" />
+              <input type="text" placeholder="🏅 Sports Item" className="p-4 bg-[#0a0f1a] rounded-lg w-full mt-6 text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
               <button className="bg-[#d90429] text-white px-6 py-3 rounded mt-20 float-right">Register</button>
             </div>
 
-            <div className="bg-[#1b263b] p-8 rounded-lg w-full mt-32">
+            <div className="bg-[#111928] p-8 rounded-lg w-full mt-32">
               {/* Players Details Form */}
               <h3 className="text-lg font-semibold mb-4">Players Details</h3>
               {players.map((player) => (
                 <div key={player.id} className="flex flex-col md:flex-row items-center gap-4 mb-4">
-                  <input type="text" placeholder="👤 Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-                  <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
+                  <input type="text" placeholder="👤 Name" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+                  <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
                   <button
                     className="ml-4 text-white bg-500 rounded-full w-8 h-8 flex items-center justify-center"
                     onClick={() => removePlayer(player.id)}
@@ -76,17 +76,17 @@ const TourReg = () => {
             </div>
           </>
         ) : (
-          <div className="bg-[#1b263b] p-8 rounded-lg w-full mb-16">
+          <div className="bg-[#111928] p-8 rounded-lg w-full mb-16">
             {/* Tournament Details Form */}
             <h3 className="text-lg font-semibold mb-4">Tournament Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input type="text" placeholder="🏆 Tournament Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-              <input type="text" placeholder="👤 Organiser" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-              <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
-              <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
+              <input type="text" placeholder="🏆 Tournament Name" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+              <input type="text" placeholder="👤 Organiser" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+              <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
+              <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded-lg w-full text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" />
             </div>
             <select 
-              className="p-4 bg-[#0a0f1a] rounded w-full mt-6 text-gray-300" 
+              className="p-4 bg-[#0a0f1a] rounded-lg w-full mt-6 text-gray-300 border border-[#27354F] focus:border-gray-500 outline-none" 
               value={sport} 
               onChange={(e) => setSport(e.target.value)}
             >
