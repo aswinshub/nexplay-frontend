@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Navbar from "../components/Navbar";
 import logo from "../assets/images/logo.png";
 
 const TourReg = () => {
   const navigate = useNavigate();
-
   const [players, setPlayers] = useState([{ id: 1, name: "", phone: "" }]);
   const [activeTab, setActiveTab] = useState("team");
   const [sport, setSport] = useState("");
@@ -19,25 +18,11 @@ const TourReg = () => {
   };
 
   return (
-    <div className="font-sans bg-[#0a0f1a] text-white min-h-screen flex flex-col items-center">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-8 bg-[#001A33] w-full max-w-full">
-      <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/")}> 
-          <img src={logo} alt="NexPlay Logo" className="h-8" />
-          <span className="text-white text-xl font-semibold">NexPlay</span>
-        </div>
-        <div className="flex justify-center">
-          <button className="border border-white text-white px-6 py-2 rounded-full bg-transparent text-sm font-medium">
-            Tournament | Team Registration
-          </button>
-        </div>
-        <div>
-          <button className="bg-[#d90429] text-white px-6 py-2 rounded-lg text-sm font-medium">Login</button>
-        </div>
-      </nav>
+    <div className="font-sans bg-[#0a0f1a] text-white min-h-screen">
+      <Navbar />
 
       {/* Registration Section */}
-      <section className="text-left py-24 px-12 w-full max-w-4xl">
+      <section className="container mx-auto text-left py-24 px-4 md:px-12 max-w-4xl">
         <h2 className="text-3xl font-semibold mb-6 text-center">Registration</h2>
 
         <div className="flex justify-center space-x-2 border-b border-gray-600 mb-6">
@@ -58,8 +43,9 @@ const TourReg = () => {
         {activeTab === "team" ? (
           <>
             <div className="bg-[#1b263b] p-8 rounded-lg w-full mb-16">
+              {/* Team Details Form */}
               <h3 className="text-lg font-semibold mb-4">Team Details</h3>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input type="text" placeholder="🏆 Team Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
                 <input type="text" placeholder="👤 Manager" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
                 <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
@@ -68,10 +54,12 @@ const TourReg = () => {
               <input type="text" placeholder="🏅 Sports Item" className="p-4 bg-[#0a0f1a] rounded w-full mt-6 text-gray-300" />
               <button className="bg-[#d90429] text-white px-6 py-3 rounded mt-20 float-right">Register</button>
             </div>
+
             <div className="bg-[#1b263b] p-8 rounded-lg w-full mt-32">
+              {/* Players Details Form */}
               <h3 className="text-lg font-semibold mb-4">Players Details</h3>
               {players.map((player) => (
-                <div key={player.id} className="flex items-center gap-4 mb-4 relative">
+                <div key={player.id} className="flex flex-col md:flex-row items-center gap-4 mb-4">
                   <input type="text" placeholder="👤 Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
                   <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
                   <button
@@ -89,46 +77,60 @@ const TourReg = () => {
           </>
         ) : (
           <div className="bg-[#1b263b] p-8 rounded-lg w-full mb-16">
+            {/* Tournament Details Form */}
             <h3 className="text-lg font-semibold mb-4">Tournament Details</h3>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input type="text" placeholder="🏆 Tournament Name" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
               <input type="text" placeholder="👤 Organiser" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
               <input type="email" placeholder="✉️ Email" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
               <input type="text" placeholder="📞 Phone No" className="p-4 bg-[#0a0f1a] rounded w-full text-gray-300" />
             </div>
-            <select className="p-4 bg-[#0a0f1a] rounded w-full mt-6 text-gray-300" value={sport} onChange={(e) => setSport(e.target.value)}>
-                <option value="">🏅 Select Sports Item</option>
-                <option value="Football">Football</option>
-                <option value="Cricket">Cricket</option>
-                <option value="Badminton">Badminton</option>
-                <option value="Hockey">Hockey</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Others">Others</option>
-              </select>
+            <select 
+              className="p-4 bg-[#0a0f1a] rounded w-full mt-6 text-gray-300" 
+              value={sport} 
+              onChange={(e) => setSport(e.target.value)}
+            >
+              <option value="">🏅 Select Sports Item</option>
+              <option value="Football">Football</option>
+              <option value="Cricket">Cricket</option>
+              <option value="Badminton">Badminton</option>
+              <option value="Hockey">Hockey</option>
+              <option value="Basketball">Basketball</option>
+              <option value="Others">Others</option>
+            </select>
             <button className="bg-[#d90429] text-white px-6 py-3 rounded mt-20 float-right">Register</button>
           </div>
         )}
       </section>
 
-       {/* Footer */}
-      <footer className="bg-[#001A33] py-10 px-12 w-full flex flex-col text-white">
-        <div className="flex justify-between w-full items-center px-8">
-          <div className="flex items-center space-x-2">
-            <img src={logo} alt="NexPlay Logo" className="h-10" />
-            <span className="text-xl font-semibold">NexPlay</span>
+      {/* Footer */}
+      <footer className="bg-[#0a0f1a] py-8 md:py-12 px-4 md:px-10 mt-10 text-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Top Section */}
+          <div className="flex flex-col md:flex-row justify-between items-start border-b border-gray-600 pb-6">
+            <div className="flex items-center gap-3 mb-4 md:mb-0">
+              <img src={logo} alt="Logo" className="h-8 w-auto" />
+              <span className="text-white text-2xl font-light">NexPlay</span>
+            </div>
+            <ul className="flex flex-wrap gap-4 md:gap-8 text-sm">
+              <li><a href="/about">About</a></li>
+              <li><a href="/matches">Matches</a></li>
+              <li><a href="/press">Press</a></li>
+              <li><a href="/customer-care">Customer Care</a></li>
+              <li><a href="/services">Services</a></li>
+            </ul>
           </div>
-          <ul className="flex gap-8 text-gray-300 text-sm justify-end w-auto">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Matches</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Customer Care</a></li>
-            <li><a href="#">Services</a></li>
-          </ul>
-        </div>
-        <hr className="w-full border-gray-600 my-4" />
-        <div className="flex justify-between w-full px-8 text-gray-400 text-xs">
-          <p>Terms & Conditions | Privacy Policy | Accessibility | Legal</p>
-          <p>&copy; 2025 NexPlay. All rights reserved</p>
+
+          {/* Bottom Section */}
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-xs mt-4 md:mt-6">
+            <p className="mb-2 md:mb-0">
+              <a href="/terms">Terms & Conditions</a> |{" "}
+              <a href="/privacy">Privacy Policy</a> |
+              <a href="/accessibility"> Accessibility</a> |{" "}
+              <a href="/legal">Legal</a>
+            </p>
+            <p>NexPlay &copy; 2025. All rights reserved</p>
+          </div>
         </div>
       </footer>
     </div>

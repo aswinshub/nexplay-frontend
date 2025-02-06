@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { HiMenu } from "react-icons/hi";
+import { IoMdClose } from "react-icons/io";
+import Navbar from "../components/Navbar";
 
 import logo from "../assets/images/logo.png";
 import heroimg from "../assets/images/heroimage.png";
@@ -34,34 +36,7 @@ const Home = () => {
 
   return (
     <div className="font-sans bg-[#0a0f1a] text-white min-h-screen">
-   <nav className="flex flex-col md:flex-row justify-between items-center px-4 md:px-6 py-6 md:py-10 bg-[#0a0f1a]">
-  {/* Logo and Brand Name */}
-  <div className="flex items-center gap-2 md:mb-0 mb-4">
-    <img src={logo} alt="Logo" className="h-8 w-auto" />
-    <span className="text-white text-2xl font-light align-middle">
-      NexPlay
-    </span>
-  </div>
-
-  {/* Tournament | Team Registration Button (Default in Mobile, Centered in Desktop) */}
-  <div className="w-[50%] md:w-auto md:absolute md:left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0">
-    <button
-          onClick={() => navigate("/tournament-registration")}
-          className="border border-white text-white px-4 py-2 rounded-full bg-transparent text-sm font-light w-full md:w-auto"
-    >
-      Tournament | Team Registration
-    </button>
-  </div>
-
-  {/* Login Button (Right-Aligned) */}
-  <div className="md:ml-auto">
-    <button className="bg-[#d90429] text-white px-4 md:px-6 py-2 rounded-md text-sm font-light">
-      Login
-    </button>
-  </div>
-</nav>
-
-
+      <Navbar />
 
       {/* Hero Section */}
       <header
@@ -73,7 +48,7 @@ const Home = () => {
         <div className="relative z-10">
           <h1 className="text-3xl md:text-5xl font-semibold text-white leading-snug">
             Change through <span className="text-[#fca311]">Sports</span> Live{" "}
-            <span className="text-[#fca311]">India’s</span> Spirit!
+            <span className="text-[#fca311]">India's</span> Spirit!
           </h1>
           <p className="mt-4 md:mt-6 text-sm md:text-lg text-gray-300 max-w-2xl mx-auto">
             Emphasize how sports empower individuals to break barriers, push
